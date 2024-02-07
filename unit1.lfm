@@ -1,0 +1,100 @@
+object Form1: TForm1
+  Left = 295
+  Height = 359
+  Top = 161
+  Width = 799
+  Caption = 'Form1'
+  ClientHeight = 359
+  ClientWidth = 799
+  OnCreate = FormCreate
+  LCLVersion = '3.0.0.3'
+  object CheckBox1: TCheckBox
+    Left = 8
+    Height = 19
+    Top = 8
+    Width = 97
+    Caption = 'Detector active'
+    TabOrder = 0
+    OnChange = CheckBox1Change
+  end
+  object ListView1: TListView
+    Left = 8
+    Height = 296
+    Top = 32
+    Width = 784
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Columns = <    
+      item
+        Caption = '#'
+        Width = 100
+      end    
+      item
+        Caption = 'Start'
+        Width = 120
+      end    
+      item
+        Caption = 'Stop'
+        Width = 120
+      end    
+      item
+        Caption = 'Interval'
+        Width = 75
+      end    
+      item
+        Caption = 'Active caption'
+        Width = 200
+      end    
+      item
+        Caption = 'RAM'
+        Width = 75
+      end    
+      item
+        AutoSize = True
+        Caption = 'Address location'
+        Width = 103
+      end>
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 1
+    ViewStyle = vsReport
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 336
+    Width = 799
+    Panels = <>
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 64
+    Top = 144
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    LogEvents = []
+    AlwaysUseBigint = False
+    Left = 528
+    Top = 80
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Action = caNone
+    Database = SQLite3Connection1
+    Left = 528
+    Top = 136
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    Params = <>
+    Macros = <>
+    Left = 528
+    Top = 192
+  end
+end
